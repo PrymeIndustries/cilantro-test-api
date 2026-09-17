@@ -76,7 +76,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         Route::get('/get-settings', 'SchoolController@getSettings');
         Route::get('/get-academic-years', 'SchoolController@getAcademicYears');
         Route::get('/get-currency-details', 'SchoolController@getCurrencyDetails');
-        Route::get('/get-posprinter-details', 'SchoolController@getPOSPrinterDetails');
+        Route::get('/get-printer-details', 'SchoolController@getPrinterDetails');
         Route::get('/get-mobile-app-download-links', 'SchoolController@getMobileAppDownloadLinks');
     });
 

@@ -152,18 +152,14 @@ class SchoolController extends Controller
         ]);
     }
 
-    public function getPOSPrinterDetails()
+    public function getPrinterDetails()
     {
         return response()->json([
             'status' => 'success',
             'data' => [
                 'name' => env('C_PRINTER_NAME') ? env('C_PRINTER_NAME') : 'C_Printer',
-                'preview' => env('C_PRINTER_OPTION_PREVIEW') ? env('C_PRINTER_OPTION_PREVIEW') == 'true' ? true : false : false,
-                'margin' => env('C_PRINTER_OPTION_MARGIN') ? env('C_PRINTER_OPTION_MARGIN') : "0 0 0 0",
-                'copies' => env('C_PRINTER_OPTION_COPIES') ? (int)env('C_PRINTER_OPTION_COPIES') : 1,
                 'time_out_per_line' => env('C_PRINTER_OPTION_TIMEOUTPERLINE') ? (int)env('C_PRINTER_OPTION_TIMEOUTPERLINE') : 400,
-                'page_size' => env('C_PRINTER_OPTION_PAGESIZE') ? env('C_PRINTER_OPTION_PAGESIZE') : "80mm",
-                'silent' => env('C_PRINTER_OPTION_PAGESIZE') ? env('C_PRINTER_OPTION_PAGESIZE') == 'true' ? true : false : true,
+                'silent' => env('C_PRINTER_OPTION_SILENT') ? env('C_PRINTER_OPTION_SILENT') == 'true' ? true : false : true,
             ]
         ]);
     }
