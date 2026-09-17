@@ -14,6 +14,11 @@ COPY . .
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --optimize-autoloader
 
+# Ensure storage directory exists and fix permissions
+RUN mkdir -p storage/logs \
+    && chown -R www-data:www-data /var/www/storage \
+    && chmod -R 775 /var/www/storage
+
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/sites-available/default
 
